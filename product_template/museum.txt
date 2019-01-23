@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Vrthday</title>
+  <meta charset="UTF-8">
+	<meta meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="about:blank">
+
+  <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+  <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+  <script src="https://unpkg.com/aframe-extras.tube@%5E3.5.x/dist/aframe-extras.tube.min.js"></script>
+  <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+  <script src="howler.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.6/dist/aframe-extras.min.js"></script>
+   <script src="https://rawgit.com/casonclagg/aframe-mario-star-component/master/dist/aframe-mario-star-component.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-video-shader/master/dist/aframe-vid-shader.min.js"></script>
+  <script src="https://rawgit.com/ngokevin/kframe/master/components/mountain/dist/aframe-mountain-component.min.js"></script>
+   <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+
+  <style type="text/css">
+
+  #splash {
+
+      position:absolute;
+      height:100vh;
+      width:100vw;
+      overflow:hidden;
+      color: white;
+      background : rgba(99,159,255,0.9);
+      top:0;
+      left:0;
+      text-align: center;
+      font-family: Arial;
+      font-size: 16px;
+
+
+  }
+  #vr {
+      display:inline-block;
+      border : 4px solid white;
+      border-radius : 2rem;
+      padding : 2rem;
+      margin-top: 1rem;
+      cursor: pointer;
+  }
+  </style>
+</head>
+
+<body>
+  <a-scene physics>
+
+      <a-entity camera="userHeight: 1"
+                position="0 1.5 4"
+                universal-controls
+                kinematic-body>
+
+      </a-entity>
+
+        <!-- light-->
+    <a-entity light="type: ambient; color: #BBB"></a-entity>
+
+    <a-light type="point" color="blue" position="0 5 0"></a-light>
+
+
+       <a-asset>
+        <a-img id="ocean" src="https://cdn.glitch.com/2b6d2797-4e35-467d-80e1-70251d165798%2FTexturesCom_WaterPlain0012_1_seamless_S.jpg?1498315419964" ></a-img>
+        <a-img id="curtain" src="https://cdn.glitch.com/68418f61-08c6-46c8-afd1-30f4835e7bfe%2FTexturesCom_WrinklesHanging0048_1_S%20copy.jpg?1501720168690" ></a-img>
+         <a-img id="cushion" src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2FTexturesCom_Leather0099_S.jpg?1501542910719" ></a-img>
+          <a-img id="door" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_DoorsOrnate0428_1_S.jpg?1535665203515" ></a-img>
+          <a-img id="floor" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_WoodFine0039_1_seamless_S.jpg?1535609619745" ></a-img>
+         <img id="piano" src="https://cdn.glitch.com/7022528f-0757-4134-8c9b-5f8042c38bfd%2FTexturesCom_AudioEquipment0047_1_S.jpg?1498124880324">
+         <img id="texturedwall" src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2FTexturesCom_BrickLargeBlocks0039_3_seamless_S.jpg?1501554726272">
+         <img id="seat3" src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2FTexturesCom_Fiberglass0027_S.jpg?1501682522168">
+        <a-img id="wall" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_Grungemaps0173_6_seamless_S.png?1535613117109"></a-img>
+         <a-img id="fancywood" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_WoodFine0061_12_seamless_S.jpg?1535733556457"></a-img>
+         <a-img id="frame1" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_PaintingFrames0012_S.png?1535744665552"></a-img>
+         <a-img id="carpet" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_PersianCarpets0016_S.jpg?1535768589832"></a-img>
+         <!--external photos-->
+         <a-img id="photo1" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo2" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo3" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo4" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo5" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo6" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo7" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo8" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo9" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo10" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+         <a-img id="photo11" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2F726a2a32b5834fd2ebb4af93ecuo--acrylic-abstract-painting-on-canvas-beautiful-abstract-wall-l.jpg?1535945340448"></a-img>
+
+
+      </a-asset>
+
+
+    <!--wood floor-->
+    <a-plane static-body height="20" width="20" rotation="-90 0 0" position="0 .5 0" src="#floor" repeat="4 2"></a-plane>
+
+    <!--carpet-->
+    <a-plane static-body height="9" width="5" rotation="-90 0 0" position="5 .6 0" src="#carpet" repeat="1 1"></a-plane>
+
+    <!--Poly by Google-->
+    <a-collada-model static-body src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FDining_table.dae?1535610651919" position="0 1 0" scale="2 2 2" rotation="0 190 0"></a-collada-model>
+
+    <!--art by Bruno Oliveira-->
+    <a-obj-model obj-model="obj: https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2Fmodel.obj?1535669172689; mtl: https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2Fmaterials.mtl?1535669174809" position="0 2.85 -.1" rotation="0 180 0" scale=".7 .6 .7"></a-obj-model>
+
+    <!--Poly by Google--->
+    <a-obj-model obj-model="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTable_Large_Rectangular_01.obj?1535669547580; mtl: https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTable_Large_Rectangular_01.mtl?1535669549533" position="0 5 -.1" rotation="0 180 0" scale="3 3 3"></a-obj-model>
+
+    <!--seat set 1-->
+    <a-box static-body src="#fancywood" height="1" width="4" depth="2.5" rotation="-90 0 0" position="-3 0 -8" repeat="1 1"></a-box>
+
+    <a-box static-body src="#fancywood" height="1" width="4" depth="2.5" rotation="-90 0 0" position="3 0 -8" repeat="1 1"></a-box>
+
+    <!--seat set 2-->
+    <a-entity rotation = "0 90 0">
+    <a-box static-body src="#fancywood" height="1" width="4" depth="2.5" rotation="-90 0 0" position="-3 0 -8" repeat="1 1"></a-box>
+
+    <a-box static-body src="#fancywood" height="1" width="4" depth="2.5" rotation="-90 0 0" position="3 0 -8" repeat="1 1"></a-box>
+    </a-entity>
+      <!--invisible wall-->
+    <a-entity rotation = "0 180 0">
+    <a-box static-body material="transparent: true; opacity: 0"  height="3" width="23" depth="2" rotation="-90 0 0" position="-4 0 -9.5" repeat="1 1"></a-box>
+
+
+
+    </a-entity>
+    <!--wall 1-->
+    <a-box static-body src="#wall" height="20" width="1" depth="15" rotation="-90 0 0" position="10 .55 0" repeat="5 5"></a-box>
+
+    <!--wall 2-->
+    <a-box static-body height="20" width="1" depth="15" rotation="-90 0 0" opacity="1" position="-10 .55 0" src="#wall" repeat="5 5"></a-box>
+
+    <!--wall 3-->
+    <a-box static-body height="20" width="1" depth="15" rotation="-90 -90 0" opacity="1" position="0 .55 10" src="#wall" repeat="5 5"></a-box>
+
+    <a-box static-body height="20" width="3" depth="1" rotation="-90 -90 0" opacity="1" position="0 .3 10" src="#door" repeat="1 1"></a-box>
+
+    <a-box static-body height="3" width=".05" depth="10" rotation="-90 -90 0" opacity="1" position="0 .55 9.5" src="#door" repeat="1 1"></a-box>
+
+    <!--wall 4-->
+    <a-box static-body height="20" width="1" depth="15" rotation="-90 90 0" opacity="1" position="0 .55 -10" src="#wall" repeat="5 5"></a-box>
+
+    <!--middle-->
+    <a-cylinder static-body height=".85" width="2" depth=".5" radius="1" rotation="0 0 0" opacity="1" position="0 .55 0" color="black" repeat="5 5"></a-cylinder>
+
+    <!--ceiling-->
+    <a-box static-body height="20" width="20" depth="20" rotation="-90 0 0" opacity="1" position="0 18 0" src="https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2FTexturesCom_OrnamentsMoorishPainted0149_S.jpg?1535612289431"></a-box>
+
+      <!--pillars-->
+    <a-cylinder static-body height="16" width="2" depth=".5" radius="1.6" rotation="0 0 0" opacity="1" position="9 0 9" src="#door" repeat="5 5"></a-cylinder>
+    <a-cylinder static-body height="16" width="2" depth=".5" radius="1.6" rotation="0 0 0" opacity="1" position="9 0 -9" src="#door" repeat="5 5"></a-cylinder>
+    <a-cylinder static-body height="16" width="2" depth=".5" radius="1.6" rotation="0 0 0" opacity="1" position="-9 0 9" src="#door" repeat="5 5"></a-cylinder>
+    <a-cylinder static-body height="16" width="2" depth=".5" radius="1.6" rotation="0 0 0" opacity="1" position="-9 0 -9" src="#door" repeat="5 5"></a-cylinder>
+
+        <a-entity position="-3.2 0 -5.7">
+                                <!--piano body-->
+          <a-box color="black"
+             width=".8" height="2.8" depth="2"
+             position="11 .4 -1.8" rotation="0 45 0"
+             static-body></a-box>
+
+                                    <!--piano platform-->
+          <a-box color="black"
+             width="1" height="1.8" depth="2"
+             position="10.9 .4 -1.7" rotation="0 45 0"
+             static-body></a-box>
+
+                                     <!--notes-->
+          <a-plane src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2F4dcefe2f364dab857aa595e49b77483f--blank-sheet-music-sheet-music-for-piano.jpg?1501558461009"
+             width=".25" height=".3"
+             position="10.8 1.6 -1.25" rotation="0 135 0"
+             static-body></a-plane>
+          <a-plane src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2F4dcefe2f364dab857aa595e49b77483f--blank-sheet-music-sheet-music-for-piano.jpg?1501558461009"
+             width=".25" height=".3"
+             position="10.9 1.6 -1.25" rotation="0 -45 0"
+             static-body></a-plane>
+          <a-plane src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2F4dcefe2f364dab857aa595e49b77483f--blank-sheet-music-sheet-music-for-piano.jpg?1501558461009"
+             width=".25" height=".3"
+             position="10.8 1.6 -1.25" rotation="0 -45 0"
+             static-body></a-plane>
+
+    <!--paper holder-->
+          <a-plane src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2FTexturesCom_AudioEquipment0047_1_S.jpg?1501555751924"
+             width="1.7" height=".15" repeat="0 3"
+             position="10.67 1.44 -1.5" rotation="-90 -45 0"
+             static-body></a-plane>
+
+        <!--keys-->
+          <a-plane src="https://cdn.glitch.com/105d6107-d2ec-4d60-9bab-37c17cb42f41%2FTexturesCom_AudioEquipment0047_2_S.jpg?1501682700107"
+             width="1.7" height=".15" repeat="2 1"
+             position="10.6 1.32 -1.4" rotation="-90 -45 0"
+             static-body></a-plane>
+
+  </a-entity>
+    <!--frame with photo 1-->
+  <a-image src="#frame1" position="-4.3 4 -9.3" rotation="0 0 0" width="3" height="3"></a-image>
+  <a-image src="#photo1" position="-4.3 4 -9.29" rotation="0 0 0" width="2" height="2"></a-image>
+
+  <!--frame with photo 2-->
+  <a-image src="#frame1" position="0 4 -9.3" rotation="0 0 0" width="4" height="4"></a-image>
+  <a-image src="#photo2" position="0 4 -9.29" rotation="0 0 0" width="3" height="3"></a-image>
+
+<!--frame with photo 3-->
+  <a-image src="#frame1" position="4.3 4 -9.3" rotation="0 0 0" width="3.6" height="3.6"></a-image>
+  <a-image src="#photo3" position="4.3 4 -9.29" rotation="0 0 0" width="2.6" height="2.6"></a-image>
+
+  <a-entity rotation="0 -90 0">
+    <!--frame with photo 4-->
+  <a-image src="#frame1" position="-4.3 4 -9.3" rotation="0 0 0" width="3" height="3"></a-image>
+  <a-image src="#photo4" position="-4.3 4 -9.29" rotation="0 0 0" width="2" height="2"></a-image>
+
+  <!--frame with photo 5-->
+  <a-image src="#frame1" position="0 4 -9.3" rotation="0 0 0" width="4" height="4"></a-image>
+  <a-image src="#photo5" position="0 4 -9.29" rotation="0 0 0" width="3" height="3"></a-image>
+
+    <!--frame with photo 6-->
+  <a-image src="#frame1" position="4.3 4 -9.3" rotation="0 0 0" width="3.6" height="3.6"></a-image>
+  <a-image src="#photo6" position="4.3 4 -9.29" rotation="0 0 0" width="2.6" height="2.6"></a-image>
+  </a-entity>
+
+
+    <a-entity rotation="0 90 0">
+          <!--frame with photo 7-->
+  <a-image src="#frame1" position="-4.3 4 -9.3" rotation="0 0 0" width="3" height="3"></a-image>
+  <a-image src="#photo7" position="-4.3 4 -9.29" rotation="0 0 0" width="2" height="2"></a-image>
+        <!--frame with photo 8-->
+  <a-image src="#frame1" position="0 4 -9.3" rotation="0 0 0" width="4" height="4"></a-image>
+  <a-image src="#photo8" position="0 4 -9.29" rotation="0 0 0" width="3" height="3"></a-image>
+        <!--frame with photo 9-->
+  <a-image src="#frame1" position="4.3 4 -9.3" rotation="0 0 0" width="3.6" height="3.6"></a-image>
+  <a-image src="#photo9" position="4.3 4 -9.29" rotation="0 0 0" width="2.6" height="2.6"></a-image>
+  </a-entity>
+
+    <a-entity rotation="0 180 0">
+      <!--frame with photo 10-->
+  <a-image src="#frame1" position="-4.3 4 -9.3" rotation="0 0 0" width="3" height="3"></a-image>
+  <a-image src="#photo10" position="-4.3 4 -9.29" rotation="0 0 0" width="2" height="2"></a-image>
+        <!--frame with photo 11-->
+  <a-image src="#frame1" position="4.3 4 -9.3" rotation="0 0 0" width="4" height="4"></a-image>
+  <a-image src="#photo11" position="4.3 4 -9.29" rotation="0 0 0" width="3" height="3"></a-image>
+  </a-entity>
+
+
+  </a-scene>
+
+    <div id="splash">
+      <h1>HAPPY BIRTHDAY!!!</h1>
+      <h2>To:        From:       </h2>
+      <p>DIRECTIONS</p>
+      <p>Be patient and the world will become visible.</p>
+      <p>On mobile: Press screen and hold to walk. Move phone to look around.</p>
+      <p>On desktop: Use arrow keys to walk. Use mouse to look around.</p>
+      <p id="vr">PRESS HERE TO EXPLORE!</p>
+      <p>Created with Vrthday.</p>
+    </div>
+
+  <script type="text/javascript">
+  var splash = document.querySelector('#splash');
+  var vrButton = document.querySelector('#vr');
+
+  var enter = function () {
+    splash.parentNode.removeChild(splash);
+  }
+  vrButton.addEventListener('click', enter);
+  </script>
+
+  <script>
+    var sound = new Howl({
+      src: ['https://cdn.glitch.com/3c14c345-6498-4f48-9ef3-2bc1dd164a68%2Fboccherini-minuet-piano-tutorial-e-major-op11-no5.mp3?1535870426382']
+      });
+    sound.play();
+  </script>
+
+</body>
+</html>
